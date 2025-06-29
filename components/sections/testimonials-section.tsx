@@ -38,7 +38,7 @@ export const TestimonialsSection = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 items-stretch">
           {testimonials.map((testimonial, index) => (
             <motion.div
               key={`testimonial-${testimonial.title}-${index}`}
@@ -46,13 +46,13 @@ export const TestimonialsSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
+              className='h-full flex'
             >
               <BackgroundGradient 
-                className="h-full relative z-10"
+                className="h-full relative z-10 flex-1"
                 animate={false}
-                containerClassName="h-full"
               >
-                <div className="p-6 h-full flex flex-col bg-slate-950/90 backdrop-blur-sm">
+                <div className="p-6 flex min-h-full flex-col bg-slate-950/90 backdrop-blur-sm">
                   <div className="flex-1 space-y-4">
                     <h3 className="text-xl font-semibold text-white">
                       {testimonial.title}
