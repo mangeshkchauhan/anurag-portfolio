@@ -18,6 +18,12 @@ export const metadata: Metadata = {
   keywords: ["Web3", "Tokenomics", "Blockchain", "DeFi", "NFT", "Token Design", "Ecosystem Strategy"],
   authors: [{ name: "Anurag Ray" }],
   creator: "Anurag Ray",
+  icons: {
+    icon: [
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/favicon.ico', sizes: '32x32' }
+    ],
+  },
   openGraph: {
     title: "Anurag Ray | Web3 Tokenomics Architect",
     description: "Web3 Tokenomics Architect & Ecosystem Strategist focused on designing sustainable token economies and scaling decentralized ecosystems.",
