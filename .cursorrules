@@ -1,0 +1,269 @@
+# Cursor AI Coding Rules & Guidelines
+
+## Core Principles
+
+### 1. **Always Understand Before Modifying**
+- Read and analyze the existing codebase structure before making changes
+- Identify the current architecture patterns and follow them consistently
+- Study existing patterns, naming conventions, and code organization
+- Ask clarifying questions if the requirements are ambiguous
+- Never make assumptions about functionality without confirmation
+- Trace through the data flow to understand dependencies
+
+### 2. **Preserve Existing Functionality**
+- Test existing features before and after modifications
+- Never remove or break working code without explicit permission
+- Maintain backward compatibility unless specifically told to refactor
+- Document any breaking changes clearly
+- Create rollback plans for significant changes
+- Verify integrations and external dependencies remain functional
+
+## Code Quality Standards
+
+### 3. **Follow Established Conventions**
+- Maintain consistent naming conventions throughout the project
+- Follow the existing indentation and formatting style
+- Use the same import/export patterns as the rest of the codebase
+- Respect existing file and folder organization
+- Match existing code structure and architectural patterns
+- Adhere to established linting rules and code formatting
+
+### 4. **Write Clean, Readable Code**
+- Use descriptive variable and function names that explain intent
+- Keep functions small and focused on single responsibilities
+- Add meaningful comments for complex logic and business rules
+- Avoid deeply nested code structures (max 3-4 levels)
+- Use consistent formatting and spacing
+- Remove dead code and unused imports
+- Follow the DRY (Don't Repeat Yourself) principle
+
+### 5. **Handle Errors Properly**
+- Always implement proper error handling for all operations
+- Use try-catch blocks where appropriate
+- Provide meaningful error messages that help with debugging
+- Never leave empty catch blocks or ignore errors silently
+- Log errors appropriately with context for debugging
+- Implement graceful degradation where possible
+- Use proper error types and status codes
+
+## Dependency Management
+
+### 6. **Respect Package Manager Lock Files**
+- **ALWAYS** use the package manager indicated by existing lock files:
+  - If `package-lock.json` exists → use `npm`
+  - If `yarn.lock` exists → use `yarn`
+  - If `pnpm-lock.yaml` exists → use `pnpm`
+  - If `bun.lockb` exists → use `bun`
+- **NEVER** mix package managers in a single project
+- **NEVER** delete or ignore existing lock files
+- When adding dependencies, use the project's established package manager
+- If no lock file exists, ask which package manager to use before proceeding
+- Commit lock file changes along with package.json updates
+
+## Safety & Security
+
+### 7. **Validate All Inputs**
+- Sanitize user inputs to prevent injection attacks
+- Validate data types, formats, and acceptable ranges
+- Handle edge cases and boundary conditions
+- Never trust external data sources or user input
+- Implement proper authentication and authorization checks
+- Use parameterized queries for database operations
+
+### 8. **Protect Sensitive Information**
+- Never hardcode API keys, passwords, or secrets in code
+- Use environment variables for all configuration values
+- Don't log sensitive data (passwords, tokens, personal info)
+- Follow security best practices for the specific technology stack
+- Implement proper session management
+- Use HTTPS for all external communications
+
+## Testing & Debugging
+
+### 9. **Write Testable Code**
+- Create functions that are easy to unit test
+- Avoid side effects in pure functions
+- Mock external dependencies properly in tests
+- Write tests for new functionality when possible
+- Use dependency injection to make code more testable
+- Structure code to enable isolated testing
+
+### 10. **Debug Systematically**
+- Use proper debugging tools instead of console.log everywhere
+- Add meaningful log statements at key decision points
+- Test edge cases and error scenarios thoroughly
+- Verify fixes don't break other functionality
+- Use structured logging with appropriate log levels
+- Remove debug code before committing
+
+## Performance & Optimization
+
+### 11. **Write Efficient Code**
+- Avoid unnecessary loops and redundant operations
+- Use appropriate data structures for the task
+- Implement lazy loading where beneficial
+- Consider memory usage and cleanup (remove event listeners, clear intervals)
+- Profile performance for critical paths
+- Optimize algorithms before optimizing infrastructure
+
+### 12. **Database Best Practices**
+- Use parameterized queries to prevent SQL injection
+- Optimize database queries and avoid N+1 problems
+- Handle database connections properly (connection pooling)
+- Use indexes appropriately for query performance
+- Implement proper transaction management
+- Consider caching strategies for frequently accessed data
+
+## Framework-Specific Rules
+
+### 13. **React/Frontend Guidelines**
+- Use functional components with hooks over class components
+- Implement proper state management (useState, useReducer, context)
+- Handle component lifecycle correctly with useEffect
+- Optimize re-renders with useMemo/useCallback when needed
+- Follow accessibility guidelines (ARIA labels, semantic HTML, keyboard navigation)
+- Implement proper error boundaries
+- Use TypeScript for better type safety when available
+
+### 14. **Backend/API Guidelines**
+- Implement proper HTTP status codes and response formats
+- Validate request payloads with proper schemas
+- Use middleware for cross-cutting concerns (logging, auth, CORS)
+- Implement rate limiting and authentication properly
+- Follow RESTful principles or GraphQL best practices
+- Handle async operations properly with proper error propagation
+- Implement health checks and monitoring endpoints
+
+### 15. **Mobile Development**
+- Handle different screen sizes and orientations
+- Implement proper navigation patterns
+- Optimize for performance on mobile devices
+- Handle offline scenarios gracefully
+- Implement proper platform-specific features
+- Test on actual devices, not just simulators
+
+## Version Control & Collaboration
+
+### 16. **Make Atomic Commits**
+- Create focused commits that address single issues
+- Write clear, descriptive commit messages (use conventional commits)
+- Don't mix refactoring with feature changes
+- Review changes before committing
+- Keep commits small and reviewable
+- Include relevant issue numbers in commit messages
+
+### 17. **Document Changes**
+- Update README files when adding new features or changing setup
+- Maintain changelog for significant updates
+- Document API changes and new endpoints with examples
+- Update inline documentation as needed
+- Include migration guides for breaking changes
+- Document configuration changes and environment requirements
+
+## Communication & Workflow
+
+### 18. **Ask Before Major Changes**
+- Confirm architectural decisions before implementation
+- Discuss breaking changes with the team
+- Clarify requirements for complex features
+- Propose alternatives when appropriate
+- Share design decisions and trade-offs
+- Get approval for significant refactoring efforts
+
+### 19. **Provide Context**
+- Explain the reasoning behind implementation choices
+- Highlight potential risks or limitations
+- Suggest improvements or optimizations for future iterations
+- Share relevant documentation or resources
+- Document assumptions and constraints
+- Provide examples of usage for new features
+
+## Common Pitfalls to Avoid
+
+### 20. **Never Do These**
+- Don't ignore compiler warnings or linting errors
+- Don't copy-paste code without understanding it
+- Don't make changes to production code without testing
+- Don't hardcode values that should be configurable
+- Don't leave TODO comments without addressing them
+- Don't remove error handling to "simplify" code
+- Don't mix package managers (npm, yarn, pnpm) in one project
+- Don't commit secrets or sensitive information
+- Don't ignore existing code patterns and conventions
+
+### 21. **Always Verify**
+- Test the complete user flow, not just individual functions
+- Check that all dependencies are properly installed with correct versions
+- Verify environment-specific configurations work across environments
+- Ensure backwards compatibility is maintained
+- Confirm that documentation matches implementation
+- Test error scenarios and edge cases
+- Validate performance impact of changes
+
+## Emergency Protocols
+
+### 22. **When Things Go Wrong**
+- Immediately stop and assess the impact and scope
+- Revert to the last known working state if possible
+- Document what went wrong and the root cause
+- Create a plan to prevent similar issues in the future
+- Test thoroughly before redeploying fixes
+- Communicate status to relevant stakeholders
+- Conduct post-mortem analysis for significant issues
+
+### 23. **Quality Checkpoints**
+- Review code changes before suggesting them
+- Test in a development environment first
+- Validate against project requirements and acceptance criteria
+- Check for potential security vulnerabilities
+- Ensure proper error handling is in place
+- Verify performance meets requirements
+- Confirm accessibility standards are met
+
+## Advanced Considerations
+
+### 24. **Scalability & Maintainability**
+- Design for future growth and changing requirements
+- Implement proper separation of concerns
+- Use design patterns appropriately
+- Consider the impact on system architecture
+- Plan for internationalization if applicable
+- Design with monitoring and observability in mind
+
+### 25. **Code Review Best Practices**
+- Review your own code before submitting
+- Look for logical errors, not just syntax
+- Consider security implications of changes
+- Verify test coverage for new functionality
+- Check for proper documentation
+- Ensure code follows established patterns
+
+---
+
+## Quick Reference Checklist
+
+Before making any code changes, ask yourself:
+- [ ] Do I understand what this code currently does?
+- [ ] Will my changes break existing functionality?
+- [ ] Am I following the project's coding standards?
+- [ ] Am I using the correct package manager (check for lock files)?
+- [ ] Have I handled potential errors properly?
+- [ ] Is my code secure and performant?
+- [ ] Have I tested my changes thoroughly?
+- [ ] Is my code well-documented and maintainable?
+- [ ] Have I considered the impact on other parts of the system?
+- [ ] Are my commits atomic and well-described?
+
+## Package Manager Quick Reference
+```bash
+# Check which package manager to use:
+ls -la | grep -E "(package-lock\.json|yarn\.lock|pnpm-lock\.yaml|bun\.lockb)"
+
+# Then use the corresponding command:
+npm install    # if package-lock.json exists
+yarn install   # if yarn.lock exists  
+pnpm install   # if pnpm-lock.yaml exists
+bun install    # if bun.lockb exists
+```
+
+Remember: **It's better to ask questions than to make assumptions that break the code. Always respect the existing project structure and conventions.**
