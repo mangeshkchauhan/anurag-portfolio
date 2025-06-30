@@ -34,7 +34,7 @@ export const FooterSection = () => {
           <p className="text-muted-foreground mb-4">
             © {new Date().getFullYear()} Anurag Ray. Building the future of Web3
           </p>
-          <div className="flex justify-center space-x-6">
+          <div className="flex justify-center space-x-6 mb-4">
             {socialLinks.map((social) => (
               <motion.a
                 key={`footer-social-${social.name}`}
@@ -49,6 +49,23 @@ export const FooterSection = () => {
               </motion.a>
             ))}
           </div>
+          <motion.p 
+            className="text-xs text-muted-foreground/60"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            built by{' '}
+            <a 
+              href="https://mangeshkumar.dev" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="hover:text-blue-600 transition-colors underline decoration-dotted underline-offset-2"
+            >
+              mangeshkumar.dev
+            </a>
+          </motion.p>
         </motion.div>
       </div>
     </div>
