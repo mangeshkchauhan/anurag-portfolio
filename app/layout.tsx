@@ -13,35 +13,20 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Tokenomy | Token Economy Command Center",
-  description:
-    "Tokenomy helps Web3 teams design sustainable token utility, incentive loops, launch strategy, dashboards, liquidity, treasury logic, and retention systems.",
-  keywords: [
-    "Tokenomy",
-    "tokenomics consultant",
-    "token economy design",
-    "Web3 economy design",
-    "token utility design",
-    "liquidity strategy",
-    "treasury runway",
-    "token launch validation",
-    "airdrop strategy",
-    "crypto economic modeling",
-  ],
+  title: "Anurag Ray | Web3 Tokenomics Architect",
+  description: "Web3 Tokenomics Architect & Ecosystem Strategist focused on designing sustainable token economies and scaling decentralized ecosystems.",
+  keywords: ["Web3", "Tokenomics", "Blockchain", "DeFi", "NFT", "Token Design", "Ecosystem Strategy"],
   authors: [{ name: "Anurag Ray" }],
-  creator: "Tokenomy",
+  creator: "Anurag Ray",
   icons: {
     icon: [
-      { url: '/icon.png', type: 'image/png', sizes: '512x512' },
-      { url: '/favicon.ico', sizes: '32x32' },
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/favicon.ico', sizes: '32x32' }
     ],
-    shortcut: '/favicon.ico',
-    apple: '/icon.png',
   },
   openGraph: {
-    title: "Tokenomy | Token Economy Command Center",
-    description:
-      "Design sustainable token economies around utility, incentive loops, smart-contract logic, dashboards, liquidity, treasury strategy, and retention.",
+    title: "Anurag Ray | Web3 Tokenomics Architect",
+    description: "Web3 Tokenomics Architect & Ecosystem Strategist focused on designing sustainable token economies and scaling decentralized ecosystems.",
     type: "website",
   },
 };
